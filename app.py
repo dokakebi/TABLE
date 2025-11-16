@@ -39,6 +39,10 @@ RESTRICTED_GLOBALS = {
         "True": True,
         "False": False,
         "None": None,
+        "enumerate": enumerate,
+        "sum": sum,
+        "max": max,
+        "min": min,
     },
     # Permite as bibliotecas de planilha que a IA precisa
     "openpyxl": openpyxl,
