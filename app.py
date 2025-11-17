@@ -26,24 +26,52 @@ app = Flask(__name__)
 # O script da IA SÓ terá acesso ao que estiver neste dicionário.
 # Ele NÃO terá acesso a 'os', 'sys', 'subprocess', 'eval', etc.
 RESTRICTED_GLOBALS = {
-    "__builtins__": {
-        # Permite funções Python seguras e básicas
-        "print": print,
-        "range": range,
-        "len": len,
-        "str": str,
-        "int": int,
-        "float": float,
-        "list": list,
-        "dict": dict,
-        "True": True,
-        "False": False,
-        "None": None,
-        "enumerate": enumerate,
-        "sum": sum,
-        "max": max,
-        "min": min,
-    },
+ "__builtins__": {
+    # --- Constantes Seguras ---
+    "True": True,
+    "False": False,
+    "None": None,
+
+    # --- Funções de Tipo/Conversão Seguras ---
+    "str": str,
+    "int": int,
+    "float": float,
+    "list": list,
+    "dict": dict,
+    "set": set,
+    "tuple": tuple,
+    "bool": bool,
+    "bytes": bytes,
+
+    # --- Funções de "Loop" e Iteração (A CAUSA DOS ERROS) ---
+    "print": print,
+    "range": range,
+    "len": len,
+    "enumerate": enumerate,
+    "zip": zip,
+    "map": map,
+    "filter": filter,
+    "sorted": sorted,
+
+    # --- Funções Matemáticas Seguras ---
+    "sum": sum,
+    "max": max,
+    "min": min,
+    "abs": abs,
+    "round": round,
+    "pow": pow,
+
+    # --- Funções de Checagem Seguras ---
+    "any": any,
+    "all": all,
+    "isinstance": isinstance,
+    "issubclass": issubclass,
+    "hasattr": hasattr,
+    "getattr": getattr,
+
+    # --- Outras ---
+    "repr": repr,
+},
     # Permite as bibliotecas de planilha que a IA precisa
     "openpyxl": openpyxl,
     "pandas": pandas,
