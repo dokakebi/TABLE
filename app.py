@@ -8,7 +8,7 @@ import io
 import os
 import uuid  # V7: Essencial para nomes de arquivos únicos (evita race condition)
 import traceback  # V7: Essencial para "debugar" o que a IA fez
-
+import numpy as np
 from flask import Flask, request, send_file, jsonify
 
 # Nossas "ferramentas pesadas" (da lista requirements.txt)
@@ -76,6 +76,7 @@ RESTRICTED_GLOBALS = {
     "openpyxl": openpyxl,
     "pandas": pandas,
     "io": io,
+    "np": np
 }
 
 # ==============================================================================
